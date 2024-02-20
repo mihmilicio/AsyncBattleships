@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="screen_padding">24dp</dimen>
+
+    <dimen name="space_between_fields">16dp</dimen>
+    <dimen name="space_before_button">24dp</dimen>
+
+</resources>
