@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.async_battleships.R
 import com.example.async_battleships.ui.common.EmailField
 import com.example.async_battleships.ui.common.PasswordField
@@ -26,8 +28,11 @@ import com.example.async_battleships.ui.theme.AsyncBattleshipsTheme
 @Composable
 fun LoginScreen(
     onLoginSuccessful: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: LoginViewModel = hiltViewModel()
 ) {
+    val uiState by viewModel.uiState
+
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.Center
@@ -38,9 +43,9 @@ fun LoginScreen(
                 .padding(dimensionResource(R.dimen.screen_padding)),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            EmailField(value = "teste", onValueChange = { /* TODO */ })
+            EmailField(value = uiState.email, onValueChange = viewModel::onEmailChange)
             Spacer(modifier = Modifier.size(dimensionResource(R.dimen.space_between_fields)))
-            PasswordField(value = "senha", onValueChange = { /* TODO */ })
+            PasswordField(value = uiState.password, onValueChange = viewModel::onPasswordChange)
             Spacer(modifier = Modifier.size(dimensionResource(R.dimen.space_before_button)))
             Row(
                 modifier = Modifier.fillMaxWidth(),
