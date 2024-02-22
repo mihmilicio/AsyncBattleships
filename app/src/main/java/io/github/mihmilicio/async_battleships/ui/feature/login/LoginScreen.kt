@@ -53,7 +53,7 @@ fun LoginScreen(
             ) {
                 PrimaryButton(
                     text = R.string.login_button,
-                    action = { /* TODO */ },
+                    action = viewModel::onLoginClick,
                     modifier = Modifier.fillMaxWidth()
                 )
             }
