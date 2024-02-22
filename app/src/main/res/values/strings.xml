@@ -11,4 +11,6 @@
     <string name="login_button">Login</string>
 
     <string name="signup_title">Sign Up</string>
+
+    <string name="home_title">Home</string>
 </resources>

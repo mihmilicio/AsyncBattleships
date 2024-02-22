@@ -30,12 +30,14 @@ class LoginViewModel @Inject constructor(
         uiState.value = uiState.value.copy(password = newValue)
     }
 
-    fun onLoginClick() {
+    // TODO review how to pass the redirection
+    fun onLoginClick(onSuccess: () -> Unit) {
         // TODO consider onSuccess/onError or try/catch
         viewModelScope.launch {
             authenticateWithPasswordUseCase(email, password,
                 onSuccess = {
                     Log.d("LoginViewModel success", it?.email.toString())
+                    onSuccess()
                 }, onError = {
                     Log.d("LoginViewModel error", it.message.toString())
                 })

@@ -23,7 +23,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import io.github.mihmilicio.async_battleships.R
+import io.github.mihmilicio.async_battleships.ui.feature.home.HomeScreen
 import io.github.mihmilicio.async_battleships.ui.feature.login.LoginScreen
 
 
@@ -87,10 +87,13 @@ fun BattleshipsApp(
                 .padding(innerPadding)
         ) {
             composable(route = RouteEnum.Login.name) {
-                LoginScreen(onLoginSuccessful = { /*TODO*/ })
+                LoginScreen(redirectToHomeScreen = { navController.navigate(RouteEnum.Home.name) })
             }
             composable(route = RouteEnum.Signup.name) {
-                LoginScreen(onLoginSuccessful = { /*TODO*/ })
+                LoginScreen(redirectToHomeScreen = { /*TODO*/ })
+            }
+            composable(route = RouteEnum.Home.name) {
+                HomeScreen()
             }
         }
     }

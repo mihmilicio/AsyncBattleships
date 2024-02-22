@@ -23,11 +23,11 @@ import io.github.mihmilicio.async_battleships.ui.theme.AsyncBattleshipsTheme
 
 /**
  * Composable that allows the user to enter username and password ans expects
- * [onLoginSuccessful] lambda that  triggers the navigation to next screen
+ * [redirectToHomeScreen] lambda that  triggers the navigation to next screen
  */
 @Composable
 fun LoginScreen(
-    onLoginSuccessful: () -> Unit,
+    redirectToHomeScreen: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: LoginViewModel = hiltViewModel()
 ) {
@@ -53,7 +53,7 @@ fun LoginScreen(
             ) {
                 PrimaryButton(
                     text = R.string.login_button,
-                    action = viewModel::onLoginClick,
+                    action = { viewModel.onLoginClick(redirectToHomeScreen) },
                     modifier = Modifier.fillMaxWidth()
                 )
             }
@@ -68,7 +68,7 @@ fun LoginScreen(
 fun LoginPreview() {
     AsyncBattleshipsTheme {
         LoginScreen(
-            onLoginSuccessful = {},
+            redirectToHomeScreen = {},
             modifier = Modifier
                 .fillMaxSize()
         )

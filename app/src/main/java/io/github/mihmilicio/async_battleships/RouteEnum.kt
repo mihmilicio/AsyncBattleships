@@ -5,7 +5,9 @@ import io.github.mihmilicio.async_battleships.R
 
 enum class RouteEnum(@StringRes val title: Int) {
     Login(title = R.string.login_title),
-    Signup(title = R.string.signup_title);
+    Signup(title = R.string.signup_title),
+
+    Home(title = R.string.home_title);
 
     companion object {
         val START_ROUTE = Login
