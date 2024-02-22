@@ -1,7 +1,9 @@
 package io.github.mihmilicio.async_battleships.ui.feature.login
 
 import android.util.Log
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,31 +17,31 @@ class LoginViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val email
-        get() = uiState.value.email
+        get() = uiState.email
     private val password
-        get() = uiState.value.password
+        get() = uiState.password
 
-    var uiState = mutableStateOf(LoginUiState())
+    var uiState by mutableStateOf(LoginUiState())
         private set
 
     fun onEmailChange(newValue: String) {
-        uiState.value = uiState.value.copy(email = newValue)
+        uiState = uiState.copy(email = newValue)
     }
 
     fun onPasswordChange(newValue: String) {
-        uiState.value = uiState.value.copy(password = newValue)
+        uiState = uiState.copy(password = newValue)
     }
 
-    // TODO review how to pass the redirection
-    fun onLoginClick(onSuccess: () -> Unit) {
+    fun onLoginClick() {
         // TODO consider onSuccess/onError or try/catch
         viewModelScope.launch {
             authenticateWithPasswordUseCase(email, password,
                 onSuccess = {
                     Log.d("LoginViewModel success", it?.email.toString())
-                    onSuccess()
+                    uiState = uiState.copy(isUserLoggedIn = true, errorMessage = null)
                 }, onError = {
                     Log.d("LoginViewModel error", it.message.toString())
+                    uiState = uiState.copy(isUserLoggedIn = false, errorMessage = it.message)
                 })
 
         }

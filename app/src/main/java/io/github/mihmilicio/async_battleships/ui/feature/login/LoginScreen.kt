@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
@@ -31,7 +33,13 @@ fun LoginScreen(
     modifier: Modifier = Modifier,
     viewModel: LoginViewModel = hiltViewModel()
 ) {
-    val uiState by viewModel.uiState
+    val currentRedirectToHomeScreen by rememberUpdatedState(redirectToHomeScreen)
+
+    LaunchedEffect(viewModel.uiState) {
+        if (viewModel.uiState.isUserLoggedIn) {
+            currentRedirectToHomeScreen()
+        }
+    }
 
     Column(
         modifier = modifier,
@@ -43,9 +51,10 @@ fun LoginScreen(
                 .padding(dimensionResource(R.dimen.screen_padding)),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            EmailField(value = uiState.email, onValueChange = viewModel::onEmailChange)
+            EmailField(value = viewModel.uiState.email, onValueChange = viewModel::onEmailChange)
             Spacer(modifier = Modifier.size(dimensionResource(R.dimen.space_between_fields)))
-            PasswordField(value = uiState.password, onValueChange = viewModel::onPasswordChange)
+            // TODO IME
+            PasswordField(value = viewModel.uiState.password, onValueChange = viewModel::onPasswordChange)
             Spacer(modifier = Modifier.size(dimensionResource(R.dimen.space_before_button)))
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -53,7 +62,7 @@ fun LoginScreen(
             ) {
                 PrimaryButton(
                     text = R.string.login_button,
-                    action = { viewModel.onLoginClick(redirectToHomeScreen) },
+                    action = { viewModel.onLoginClick() },
                     modifier = Modifier.fillMaxWidth()
                 )
             }
