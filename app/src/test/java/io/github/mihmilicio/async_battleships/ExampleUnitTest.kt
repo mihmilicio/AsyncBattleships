@@ -1,4 +1,4 @@
-package com.example.async_battleships
+package io.github.mihmilicio.async_battleships
 
 import org.junit.Test
 

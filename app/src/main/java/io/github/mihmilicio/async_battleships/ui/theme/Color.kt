@@ -1,4 +1,4 @@
-package com.example.async_battleships.ui.theme
+package io.github.mihmilicio.async_battleships.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.example.async_battleships.ui.common
+package io.github.mihmilicio.async_battleships.ui.common
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,7 +24,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import com.example.async_battleships.R
+import io.github.mihmilicio.async_battleships.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

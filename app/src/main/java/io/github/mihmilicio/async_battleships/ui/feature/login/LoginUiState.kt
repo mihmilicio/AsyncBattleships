@@ -1,4 +1,4 @@
-package com.example.async_battleships.ui.feature.login
+package io.github.mihmilicio.async_battleships.ui.feature.login
 
 data class LoginUiState(
     val email: String = "",

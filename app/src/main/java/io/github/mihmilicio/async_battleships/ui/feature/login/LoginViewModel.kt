@@ -1,4 +1,4 @@
-package com.example.async_battleships.ui.feature.login
+package io.github.mihmilicio.async_battleships.ui.feature.login
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel

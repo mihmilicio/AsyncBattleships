@@ -1,4 +1,4 @@
-package com.example.async_battleships.ui.feature.login
+package io.github.mihmilicio.async_battleships.ui.feature.login
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,11 +15,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.async_battleships.R
-import com.example.async_battleships.ui.common.EmailField
-import com.example.async_battleships.ui.common.PasswordField
-import com.example.async_battleships.ui.common.PrimaryButton
-import com.example.async_battleships.ui.theme.AsyncBattleshipsTheme
+import io.github.mihmilicio.async_battleships.R
+import io.github.mihmilicio.async_battleships.ui.common.EmailField
+import io.github.mihmilicio.async_battleships.ui.common.PasswordField
+import io.github.mihmilicio.async_battleships.ui.common.PrimaryButton
+import io.github.mihmilicio.async_battleships.ui.theme.AsyncBattleshipsTheme
 
 /**
  * Composable that allows the user to enter username and password ans expects

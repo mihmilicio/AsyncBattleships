@@ -1,4 +1,4 @@
-package com.example.async_battleships
+package io.github.mihmilicio.async_battleships
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -13,7 +13,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -24,7 +23,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.async_battleships.ui.feature.login.LoginScreen
+import io.github.mihmilicio.async_battleships.R
+import io.github.mihmilicio.async_battleships.ui.feature.login.LoginScreen
 
 
 /**

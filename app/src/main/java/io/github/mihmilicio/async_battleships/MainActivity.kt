@@ -1,9 +1,9 @@
-package com.example.async_battleships
+package io.github.mihmilicio.async_battleships
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.async_battleships.ui.theme.AsyncBattleshipsTheme
+import io.github.mihmilicio.async_battleships.ui.theme.AsyncBattleshipsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.example.async_battleships.ui.common
+package io.github.mihmilicio.async_battleships.ui.common
 
 import androidx.annotation.StringRes
 import androidx.compose.material3.Button
